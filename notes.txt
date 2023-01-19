@@ -1,0 +1,19 @@
+create the transactions routes{
+    create the account model: 
+        account balance, 
+        total credit transaction, 
+        total debit transaction, 
+        loan counter, 
+        enrolled cards,
+        total transactions,
+        total transfers
+
+    credit transactions,
+    debit transactions  
+}
+create the admin routes{
+    admins should be able to edit all customers' detail
+}
+create the superadmin route{
+    superadmins should be able to edit all users' detail.
+}
