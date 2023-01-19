@@ -14,10 +14,15 @@ const app = express()
 app.use(cookieParser())
 // middlewares
 app.use(express.json({limit:'50mb'}))
-
+app.use(
+    cors({
+      origin: ["http://localhost:3000", "https://eastdalefinance.vercel.app"],
+      credentials: true,
+    })
+  );
 app.use(express.urlencoded({extended:  false}))
 app.use(bodyParser.json())
-app.use(cors())
+
 app.use(morgan('dev'))
 
 
