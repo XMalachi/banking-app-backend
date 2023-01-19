@@ -8,7 +8,7 @@ const JWT = require('jsonwebtoken')
 
 const generateToken = (id)=> {
     // console.log("process env",process.env.MAILJET_API_SECRET,)
-    return JWT.sign({id}, process.env.JWTSECRET, {expiresIn:'1d'})
+    return JWT.sign({id}, `${process.env.JWTSECRET}`, {expiresIn:'1d'})
 }
 
 
