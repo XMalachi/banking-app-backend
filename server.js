@@ -16,7 +16,7 @@ app.use(cookieParser())
 app.use(express.json({limit:'50mb'}))
 app.use(
     cors({
-      origin: ["http://localhost:3000", "https://eastdalefinance.vercel.app"],
+      origin: ["http://localhost:3000", "https://eastdalefinance.onrender.com"],
       credentials: true,
     })
   );
