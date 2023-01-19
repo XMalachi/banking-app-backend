@@ -6,6 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
+const path = require('path');
 // const PostRoutes = require('./routes/PostRoutes');
 const errorHandler = require("./middleware/errorMiddleware.js");
 const cookieParser = require("cookie-parser");
@@ -21,6 +22,10 @@ app.use(
     })
   );
 app.use(express.urlencoded({extended:  false}))
+app.use(express.static(path.join(__dirname, 'build')));
+
+
+
 app.use(bodyParser.json())
 
 app.use(morgan('dev'))
@@ -28,6 +33,9 @@ app.use(morgan('dev'))
 
 // app.use('/api/posts', PostRoutes)
 // routes
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.get('/', (req, res) => {
     res.send("Welcome Page")
     console.log(req.cookies, "request cookies")
