@@ -33,9 +33,9 @@ app.use(morgan('dev'))
 
 // app.use('/api/posts', PostRoutes)
 // routes
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public'));
-});
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'public'));
+// });
 app.get('/', (req, res) => {
     res.send("Welcome Page")
     console.log(req.cookies, "request cookies")
