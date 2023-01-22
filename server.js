@@ -29,26 +29,27 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 
 app.use(morgan('dev'))
-
-
-// app.use('/api/posts', PostRoutes)
-// routes
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname, 'public'));
-// });
-app.get('/', (req, res) => {
-    res.send("Welcome Page")
-    console.log(req.cookies, "request cookies")
-})
-
-const PORT =  process.env.PORT || 5000
-
 //  error middleware 
 app.use(errorHandler);
 
 // routes middleware
 app.use('/api/users', userRoutes)
 app.use('/api/transactions', transactionRoutes)
+
+// app.use('/api/posts', PostRoutes)
+// routes
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'public'));
+// });
+const PORT =  process.env.PORT || 5000
+app.get('/', (req, res) => {
+    res.send("Welcome Page")
+    console.log(req.cookies, "request cookies")
+})
+
+
+
+
 // connect to DBB and start server
 mongoose
 .connect(process.env.MONGO_URI)
